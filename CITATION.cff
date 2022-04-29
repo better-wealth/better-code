@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: Please use the following metadata when citing this project in your work.
+title: bettercode
+abstract: Scripts for building a better coding environment.
+version: 1.0.0
+license: Hippocratic-2.1
+date-released: 2022-04-29
+authors:
+  - family-names: Roach
+    given-names: John
+    affiliation: johnpatrickroach
+keywords:
+ - bash
+ - shell
+ - zsh
+ - python3
+ - brew
+ - Homebrew
+ - macOS
+ - defaults
+ - scripts
+ - automation
+ - setup
+ - recovery
+ - dotfiles
+repository-code: https://github.com/John-Patrick-Roach/bettercode
+repository-artifact: https://github.com/John-Patrick-Roach/bettercode

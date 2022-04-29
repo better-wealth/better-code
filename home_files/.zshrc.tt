@@ -1,0 +1,135 @@
+#! /usr/bin/env bash
+
+if [[ BASH_VERSINFO[0] < 4 ]]; then
+  printf "%s\n" "WARNING: Dotfiles requires Bash 4.x.x or higher to work correctly."
+fi
+
+# Checks the window size after each command and, if necessary, updates LINES and COLUMNS values.
+shopt -s checkwinsize
+
+# Attempts to save all lines of a multi-line command as a single history entry for easy re-editing.
+shopt -s cmdhist
+
+# Attempts word spelling correction on directory names if directory name supplied does not exist.
+shopt -s dirspell
+
+# Enables extended pattern matching features.
+shopt -s extglob
+
+# Using ** in a pathname expansion context will match all files and zero or more directories and
+# subdirectories. If the pattern is followed by a /, only directories and subdirectories match.
+shopt -s globstar
+
+# The history list is appended (instead of being overwritten) as defined by the HISTFILE variable.
+shopt -s histappend
+
+# Enables history expansion with space (i.e. `!!<space>`).
+bind Space:magic-space
+
+# Editors
+export EDITOR=sublime
+export VISUAL=vim
+
+# History
+export HISTFILE="$HOME/.config/bash/history.log"
+export HISTTIMEFORMAT="%F %T " # Use YYYY-MM-DD HH:MM:SS date/time format.
+export HISTCONTROL="erasedups:ignoreboth" # Remove duplicate entries.
+export HISTSIZE=10000 # Keep lengthy command history.
+export HISTIGNORE="#*:..:...:c:h:l:l1:p:pwd:gst:gd:exit:* --help" # Exclude mundane commands.
+
+# Homebrew
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export HOMEBREW_BAT=1
+export HOMEBREW_BOOTSNAP=1
+export HOMEBREW_CURL_RETRIES=3
+export HOMEBREW_FORCE_BREWED_CURL=1
+export HOMEBREW_FORCE_BREWED_GIT=1
+export HOMEBREW_INSTALL_FROM_API=1
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_PREFIX="$(brew --prefix)"
+
+# Environment
+source "$HOME/.config/bash/env.sh"
+
+# Colors
+source "$HOME/.config/bash/colors.sh"
+
+# Aliases
+source "$HOME/.config/bash/aliases.sh"
+
+# Functions
+source "$HOME/.config/bash/functions-private.sh"
+source "$HOME/.config/bash/functions-public.sh"
+
+# Command Prompt (http://jonisalonen.com/2012/your-bash-prompt-needs-this)
+source "$HOME/.config/bash/prompt.sh"
+
+# Bash Completion
+if [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
+  source "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+fi
+
+# Docker
+export DOCKER_CONFIG=$HOME/.config/docker
+
+# OpenSSL
+export PATH="$HOMEBREW_PREFIX/opt/openssl/bin:$PATH"
+
+# GPG
+export GPG_TTY=$(tty)
+
+# direnv
+if [[ -e "$HOMEBREW_PREFIX/bin/direnv" ]]; then
+  eval "$(direnv hook bash)"
+fi
+
+# Exa
+export EXA_STRICT=true
+export EXA_COLORS="da=1;34:di=32:gm=33:gd=31"
+
+# Ruby
+export BUNDLE_USER_CACHE="$HOME/.cache/bundler"
+export BUNDLE_USER_CONFIG="$HOME/.config/bundler/configuration.yml"
+export BUNDLE_USER_HOME="$HOME/.local/share/bundler"
+export BUNDLE_USER_PLUGIN="$HOME/.local/share/bundler/plugin"
+export RUBYOPT='-W:deprecated'
+
+# Fast Node Manager
+export FNM_DIR="$HOME/.cache/.fnm"
+eval "$(fnm env)"
+
+# Frum
+export FRUM_DIR="$HOME/.cache/frum"
+eval "$(frum init)"
+
+# FZF
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --color always --exclude .git"
+export FZF_DEFAULT_OPTS="--multi --ansi"
+
+# Make
+export MAKE="make --jobs=$(sysctl -n hw.ncpu)"
+
+# Node
+export PATH="$PATH:$HOMEBREW_PREFIX/share/npm/bin"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Terraform
+export TF_PLUGIN_CACHE_DIR="$HOME/.cache/terraform/plugins"
+
+# Git
+export GIT_CONFIG_GLOBAL="$HOME/.config/git/configuration"
+
+if [[ -r "$HOMEBREW_PREFIX/opt/git/etc/bash_completion.d/git-completion.bash" ]]; then
+  source "$HOMEBREW_PREFIX/opt/git/etc/bash_completion.d/git-completion.bash"
+fi
+
+export PATH=".git/safe/../../bin:$PATH"
+
+# Zoxide
+export _ZO_DATA_DIR="$HOME/.cache/zoxide"
+eval "$(zoxide init bash)"

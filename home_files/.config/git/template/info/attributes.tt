@@ -1,0 +1,17 @@
+*.gemspec diff=ruby
+*.gif diff=exif
+*.ico diff=exif
+*.jpeg diff=exif
+*.jpg diff=exif
+*.mp4 diff=exif
+*.ogg diff=exif
+*.png diff=exif
+*.rake diff=ruby
+*.rb diff=ruby
+*.webm diff=exif
+config.ru diff=ruby
+Gemfile diff=ruby
+Gemfile.lock diff=ruby
+Guardfile diff=ruby
+Procfile diff=ruby
+Rakefile diff=ruby

@@ -1,0 +1,335 @@
+#! /usr/bin/env bash
+
+# Section: https://www.gnu.org/software/bash:[Bash]
+alias bashe="$EDITOR $HOME/.config/bash/env.sh"
+alias bashs="exec $SHELL"
+
+# Section: https://bundler.io:[Bundler]
+alias ba="bundle add"
+alias bb="bundle binstubs"
+alias bce="$EDITOR $HOME/.config/bundler/configuration.yml"
+alias bch="rm -f Gemfile.lock; bundle check"
+alias bd="bundle doctor"
+alias be="bundle exec"
+alias bi="bundle install"
+alias blo="bundle list --paths | fzf | xargs $EDITOR"
+alias bo="bundle outdated --only-explicit"
+alias br="bundle remove"
+alias bu="bundle update"
+
+# Section: https://direnv.net:[direnv]
+alias denva="direnv allow"
+alias denvr="direnv reload"
+alias denvs="direnv status"
+
+# Section: https://www.docker.com:[Docker]
+alias dr="docker"
+alias drb="docker build"
+alias drc="docker-compose"
+alias drd="docker system prune --force && docker buildx prune --force"
+alias dri="docker images"
+alias drp="docker ps --all"
+alias drt="docker tag"
+
+# Section: https://the.exa.website:[Exa]
+alias x1="exa --oneline --all --group-directories-first"
+alias x="exa --all --all --long --header --group --group-directories-first --time-style long-iso --git"
+alias xt="exa --all --group-directories-first --ignore-glob '*.git' --git-ignore --tree"
+
+# Section: https://github.com/junegunn/fzf:[Fuzzy Finder]
+alias ff="fzf --preview 'bat --theme DarkNeon --color always {}' | xargs $EDITOR"
+
+# Section: General
+alias c="clear"
+alias h="history"
+alias j="jobs"
+alias o="open"
+alias p='pwd | tr -d "\r\n" | _copy_and_print'
+alias pss="pgrep -i -l -f"
+alias rmde="find . -type d -empty -not -path '*.git*' -delete"
+alias cb="tr -d '\n' | pbcopy"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+# Merge PDF files
+# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+# Disable Spotlight
+alias spotoff="sudo mdutil -a -i off"
+# Enable Spotlight
+alias spoton="sudo mdutil -a -i on"
+# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume 7'"
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+
+
+# Section: ls
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # OS X `ls`
+    colorflag="-G"
+fi
+alias l1="ls -A1 | _copy_and_print '\n'"
+alias l="ls -alhT"
+# List all files colorized in long format
+alias lf="ls -lF ${colorflag}"
+# List all files colorized in long format, including dot files
+alias la="ls -laF ${colorflag}"
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+alias ll='ls -la ${colorflag}'
+alias lh='ls -lah ${colorflag}'
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+
+# Section: sudo
+# Enable aliases to be sudo'ed
+alias sudo='sudo '
+
+# Section: datetime
+# Get week number
+alias week='date +%V'
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# Section: Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+alias cdb="cd -"
+
+# Section: Shortcuts
+alias d="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+
+# Section: https://git-scm.com:[Git]
+alias g="git"
+alias ga="git add"
+alias gall="git add --all ."
+alias gamend="git commit --amend"
+alias gamenda="git commit --amend --all --no-edit"
+alias gamendh="git commit --amend --no-edit"
+alias gap="git add --patch"
+alias gashc="git stash clear"
+alias gatch="git commit --patch"
+alias gau="git add --update"
+alias gb="git switch"
+alias gbb="git switch -"
+alias gbe="git branch --edit-description"
+alias gbi="git bisect"
+alias gbib="git bisect bad"
+alias gbig="git bisect good"
+alias gbih="git bisect help"
+alias gbil="git bisect log"
+alias gbir="git bisect reset"
+alias gbire="git bisect replay"
+alias gbis="git bisect start"
+alias gbisk="git bisect skip"
+alias gbiv='git bisect visualize --reverse --pretty=format:"$(_git_log_line_format)"'
+alias gbm='git switch $(_git_branch_default)'
+alias gbn="_git_branch_name | _copy_and_print"
+alias gbt="git show-branch --topics"
+alias gca="git commit --all"
+alias gcam="git commit --all --message"
+alias gcd="git config --list --show-origin --show-scope"
+alias gce='cat .git/COMMIT_EDITMSG | rg --invert-match "^\#.*" | pbcopy'
+alias gcge="git config --global --edit"
+alias gcl="git clone"
+alias gcle="git config --local --edit"
+alias gcm="git commit --message"
+alias gco="git commit"
+alias gcp="git cherry-pick"
+alias gcpa="git cherry-pick --abort"
+alias gcps="git cherry-pick --skip"
+alias gcs="git commit --squash"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gdm='git diff origin/$(_git_branch_default)'
+alias gdo='git diff --name-only | uniq | xargs $EDITOR'
+alias gdt="git difftool"
+alias gdtc="git difftool --cached"
+alias gdtm='git difftool origin/$(_git_branch_default)'
+alias gdw="git diff --color-words"
+alias gel="git rm"
+alias gelc="git rm --cached" # Removes previously tracked file from index after being added to gitignore.
+alias ges="git reset"
+alias gf="git fetch"
+alias gg="git grep"
+alias gget="git config --get"
+alias gi="git init && git config --global --add maintenance.repo $PWD"
+alias gl='git log --graph --pretty=format:"$(_git_log_line_format)"'
+alias glame="git blame -M -C -C -C"
+alias glean="git clean -d --force"
+alias glf='git fetch && git log --reverse --no-merges --pretty=format:"$(_git_log_line_format)" ..@{upstream}'
+alias glg='git log --pretty=format:"$(_git_log_line_format)" --grep'
+alias glh="_git_commit_last | _copy_and_print"
+alias gls='git log --pretty=format:"$(_git_log_line_format)" -S'
+alias glt='git for-each-ref --sort=taggerdate --color --format="%(color:yellow)%(refname:short)%(color:reset)|%(taggerdate:short)|%(color:blue)%(color:bold)%(*authorname)%(color:reset)|%(subject)" refs/tags | column -s"|" -t'
+alias gna="git notes add"
+alias gnd="git notes remove"
+alias gne="git notes edit"
+alias gnl="git notes list"
+alias gnp="git notes prune"
+alias gns="git notes show"
+alias gpf="git push --force-with-lease"
+alias gpn="git push --no-verify"
+alias gpo="git push --set-upstream origin"
+alias gpu="git pull"
+alias gpuo="git pull origin"
+alias gpuom='git pull origin $(_git_branch_default)'
+alias gpuum='git pull upstream $(_git_branch_default)'
+alias gr="git restore"
+alias grba="git rebase --abort"
+alias grbc="git rebase --continue"
+alias grbd="git rebase --show-current-patch"
+alias grbo="git rebase --onto"
+alias grbs="git rebase --skip"
+alias grbt="git rebase --edit-todo"
+alias grev="git revert --no-commit"
+alias grl="git reflog"
+alias grom='git fetch --all && git reset --hard origin/$(_git_branch_default)' # Reset local branch to origin/main branch. UNRECOVERABLE!
+alias grr="git rerere"
+alias gset="git config --add"
+alias gst="git status --short --branch"
+alias gtag="git tag"
+alias gtags="git push --tags"
+alias gtagv="git tag --verify"
+alias guthors='git log --color --pretty=format:"%C(bold blue)%an%C(reset)" | sort | uniq -c | sort --reverse'
+alias gwl="git worktree list"
+alias gwp="git worktree prune"
+
+# Section: https://brew.sh:[Homebrew]
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+alias hb="brew"
+alias hbd="brew doctor"
+alias hbi="brew install"
+alias hbin="brew info"
+alias hblc="brew list --casks --versions | fzf"
+alias hblf="brew list --formulae --versions | fzf"
+alias hbp="brew pin"
+alias hbpu="brew unpin"
+alias hbs="brew search"
+alias hbsu="brew update && brew upgrade && brew cleanup"
+alias hbu="brew uninstall"
+alias hbug="brew update && brew upgrade"
+
+# Section: https://trac.webkit.org/wiki/JSC:[JavaScript Core]
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Helpers/jsc"
+[ -e "${jscbin}" ] && alias jsc="${jscbin}";
+unset jscbin;
+
+# Section: https://jless.io:[jless]
+alias jlr="jless --mode line"
+
+# Section: https://marked2app.com:[Marked 2]
+alias mo="open -a Marked\ 2"
+
+# Section: Network
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias dnsf="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && printf 'DNS cache cleared.\n'"
+alias dnsi="scutil --dns"
+alias dnss="sudo dscacheutil -statistics"
+alias ipa='curl --silent checkip.dyndns.org | rg --only-matching "[0-9\.]+" | _copy_and_print'
+alias key="open /Applications/Utilities/Keychain\ Access.app"
+alias ping="gping"
+alias sshe="$EDITOR $HOME/.ssh/config"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+    alias "$method"="lwp-request -m '$method'"
+done
+
+# Section: https://cocoatech.com:[Path Finder]
+alias pfo='open -a "Path Finder.app" "$PWD"'
+
+# Section: https://www.postgresql.org:[PostgreSQL]
+alias pgi="initdb $HOMEBREW_PREFIX/var/postgres"
+alias pgsp="pg_ctl -D $HOMEBREW_PREFIX/var/postgres stop -s -m fast"
+alias pgst="pg_ctl -D $HOMEBREW_PREFIX/var/postgres -l $HOMEBREW_PREFIX/var/postgres/server.log start &"
+
+# Section: https://redis.io:[Redis]
+alias redc="redis-cli"
+alias reds="redis-server $HOMEBREW_PREFIX/etc/redis.conf &"
+
+# Section: https://github.com/BurntSushi/ripgrep:[ripgrep]
+alias rgf="rg --files --glob"
+
+# Section: https://github.com/bbatsov/rubocop:[Rubocop]
+alias cop="rubocop --parallel --display-cop-names --display-style-guide"
+alias copc="rubocop --auto-gen-config"
+alias copd='rm -f $HOME/.config/rubocop/.rubocop-http* && find . -name ".rubocop-http*" -type f -delete'
+alias copf="rubocop --auto-correct"
+alias copfo="rubocop --auto-correct --only"
+alias copo="rubocop --display-cop-names --only"
+alias cops="rubocop --show-cops"
+
+# Section: https://www.ruby-lang.org:[Ruby]
+alias rbbe="$EDITOR $HOME/Engineering/Misc/benchmark"
+alias rbbr="$HOME/Engineering/Misc/benchmark"
+alias rbse="$EDITOR $HOME/Engineering/Misc/snippet"
+alias rbsr="$HOME/Engineering/Misc/snippet"
+
+# Section: https://rubyonrails.org:[Ruby on Rails]
+alias railsb="rails console --sandbox"
+alias railse="EDITOR='sublime --wait' rails credentials:edit"
+
+# Section: https://rubygems.org:[RubyGems]
+alias gemc="gem cleanup"
+alias gemcli="rg 'spec\.executables' --no-messages --max-depth=2 --files-with-matches gemspec . | xargs basename | cut -d. -f1 | sort | _copy_and_print '\n'"
+alias gemcr="$EDITOR $HOME/.gem/credentials"
+alias geme="gem environment"
+alias gemi="gem install"
+alias geml="gem list"
+alias gemp="gem pristine"
+alias gemu="gem uninstall"
+alias gemuc="gem update --system && gem update && gem cleanup"
+
+# Section: https://www.gnu.org/software/tar/tar.html:[Tar]
+alias bzc="tar --use-compress-program=pigz --create --preserve-permissions --bzip2 --verbose --file"
+alias bzx="tar --extract --bzip2 --verbose --file"
+
+# Section: https://www.terraform.io:[Terraform]
+alias tf="terraform"
+alias tfa="noti --title 'Terraform Apply' terraform apply"
+alias tfc="terraform console"
+alias tff="terraform fmt"
+alias tfg="terraform graph | dot -Tsvg > tmp/graph.svg && open -a 'Firefox.app' tmp/graph.svg"
+alias tfi="terraform init"
+alias tfo="terraform output"
+alias tfp="noti --title 'Terraform Plan' terraform plan"
+alias tft="terraform taint"
+alias tfu="terraform untaint"
+alias tfv="terraform validate"
+
+# Section: https://gitlab.com/procps-ng/procps:[Watch]
+alias wp="watch --interval 1 --color --beep --exec"
