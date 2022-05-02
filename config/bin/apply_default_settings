@@ -5,6 +5,12 @@
 #printf "%s\n" "System - Disable boot sound effects."
 #sudo nvram SystemAudioVolume=" "
 
+printf "%s\n" "System - Enable strict Firewall."
+defaults write /Library/Preferences/com.apple.alf globalstate 2
+
+printf "%s\n" "Enabling Stealth Firewall Mode.\n"
+defaults write /Library/Preferences/com.apple.alf stealthenabled 1
+
 #printf "%s\n" "System - Reveal IP address, hostname, OS version, etc. when clicking login window clock."
 #sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
