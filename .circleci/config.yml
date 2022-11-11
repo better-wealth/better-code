@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: johnpatrickroach/alpine-ruby:latest
+      - image: better-code/alpine-ruby:latest
     steps:
       - checkout
 
