@@ -51,7 +51,7 @@ pipenv --python $PYTHON_VERSION
 
 ### GIT ###
 git config --global user.name "johnpatrickroach"
-git config --global user.email "patrick.roach@blockfi.com"
+git config --global user.email "johnpatrickroach1@gmail.com"
 git config --global commit.gpgsign true
 git config --global user.signingkey {YOUR_GPG_KEY_FINGERPRINT}
 
@@ -98,7 +98,7 @@ asdf global direnv ${direnv_version}
 
 
 ### postgresql ###
-#createuser -d -P -s blockfiadmin
+#createuser -d -P -s postgres
 
 ### git ###
 git config --global commit.gpgsign true

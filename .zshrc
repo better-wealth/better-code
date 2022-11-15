@@ -1,7 +1,3 @@
-# https://blockfi.atlassian.net/wiki/spaces/PD/pages/654540883/Engineering+Setup
-# https://blockfi.atlassian.net/wiki/spaces/PD/pages/538771488/Commit+Signing
-# https://blockfi.atlassian.net/wiki/spaces/PD/pages/701890566/Setup+Global+.gitignore
-
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -31,20 +27,12 @@ export CPPFLAGS="-I/usr/local/opt/curl/include"
 # ALIASES
 alias ll='ls -la -G'
 alias lh='ls -lah -G'
-alias blockfi='open https://blockfi.okta.com'
-alias awsapps='open https://blockfi.awsapps.com/start#/'
-alias databricks='open https://blockfi-tempest.cloud.databricks.com'
-alias github='open https://github.com/blockfi'
-alias tickets='open https://blockfi.atlassian.net/jira/your-work'
-alias confluence='open https://blockfi.atlassian.net/wiki/home'
 alias drive='open https://drive.google.com/drive/my-drive'
 alias gmail='open https://mail.google.com/mail/u/0/#inbox'
 alias calendar='open https://calendar.google.com/calendar/u/0/r?pli=1'
 alias miro='open https://miro.com/app/dashboard/'
 alias bonusly='open https://bonus.ly/bonuses'
-alias culture='open https://blockfi.cultureamp.com/'
 alias greenhouse='open https://app2.greenhouse.io/dashboard'
-alias bamboo='open https://blockfi.bamboohr.com'
 alias privacytools='open https://www.privacytools.io/'
 alias privacytoolslist='open https://privacytoolslist.com/'
 alias explain='open https://explain.tensor.ru/'
