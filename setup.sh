@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# REFERENCE: https://blockfi.atlassian.net/wiki/spaces/PD/pages/654540883/Engineering+Setup
 
 set -e
 
@@ -262,8 +261,6 @@ brew update;
 echo "SETTING UP GPG TOOLS";
 echo;
 brew install gpg
-echo "SETUP COMMIT SIGNING BY FOLLOWING THE INSTRUCTIONS HERE: ";
-echo "https://blockfi.atlassian.net/wiki/spaces/PD/pages/538771488/Commit+Signing";
 echo;
 echo "GETTING pinentry-mac";
 echo;

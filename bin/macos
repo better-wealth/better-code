@@ -15,7 +15,7 @@ if [[ -e "$MAC_OS_CONFIG_PATH" ]]; then
 else
   printf "ERROR: Unable to load macOS configuration: $MAC_OS_CONFIG_PATH.\n\n"
   printf "Please check the following before continuing:\n"
-  printf "  • Download the default macOS configuration here: https://github.com/blockfi/quicksilver/tree/development/src/env-config.\n"
+  printf "  • Download the default macOS configuration here: https://github.com/\n"
   printf "  • Customize as necessary for your setup or fork the project and make your own configuration.\n"
   printf "  • When finished, your folder structure should look like this:\n"
   printf "    • <root path>/env:\n"
