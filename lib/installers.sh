@@ -18,8 +18,8 @@ download_file() {
 
   printf "%s\n" "Downloading $1..."
   clean_work_path
-  mkdir $MAC_OS_WORK_PATH
-  curl --header "$http_header" --location --retry 3 --retry-delay 5 --fail --silent --show-error "$url" >> "$MAC_OS_WORK_PATH/$file_name"
+  mkdir $BETTER_CODE_WORK_PATH
+  curl --header "$http_header" --location --retry 3 --retry-delay 5 --fail --silent --show-error "$url" >> "$BETTER_CODE_WORK_PATH/$file_name"
 }
 export -f download_file
 
@@ -57,7 +57,7 @@ install_dmg_app() {
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
-    mount_image "$MAC_OS_WORK_PATH/$work_file"
+    mount_image "$BETTER_CODE_WORK_PATH/$work_file"
     install_app "$mount_point" "$app_name"
     unmount_image "$mount_point"
     verify_application "$app_name"
@@ -76,7 +76,7 @@ install_dmg_pkg() {
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
-    mount_image "$MAC_OS_WORK_PATH/$work_file"
+    mount_image "$BETTER_CODE_WORK_PATH/$work_file"
     install_pkg "$mount_point" "$app_name"
     unmount_image "$mount_point"
     printf "Installed: $app_name.\n"
@@ -95,7 +95,7 @@ install_file() {
   if [[ ! -e "$install_path" ]]; then
     download_file "$file_url" "$file_name"
     mkdir -p $(dirname "$install_path")
-    mv "$MAC_OS_WORK_PATH/$file_name" "$install_path"
+    mv "$BETTER_CODE_WORK_PATH/$file_name" "$install_path"
     printf "Installed: $file_name.\n"
     verify_path "$install_path"
   fi
@@ -137,7 +137,9 @@ install_git_project() {
     git -c advice.detachedHead=false checkout "$repo_version"
     eval "$script"
   )
-  rm -rf "$project_dir"
+  if [ -d "$project_dir" ]; then
+    rm -rf "$project_dir"
+  fi
 }
 export -f install_git_project
 
@@ -162,7 +164,7 @@ install_bare_pkg() {
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
-    install_pkg "$MAC_OS_WORK_PATH" "$app_name"
+    install_pkg "$BETTER_CODE_WORK_PATH" "$app_name"
     printf "Installed: $app_name.\n"
     verify_application "$app_name"
   fi
@@ -189,7 +191,7 @@ install_program() {
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$program_name"
-    mv "$MAC_OS_WORK_PATH/$program_name" "$install_path"
+    mv "$BETTER_CODE_WORK_PATH/$program_name" "$install_path"
     chmod 755 "$install_path"
     printf "Installed: $program_name.\n"
     verify_application "$program_name"
@@ -242,11 +244,11 @@ install_tar_app() {
 
     (
       printf "Preparing...\n"
-      cd "$MAC_OS_WORK_PATH"
+      cd "$BETTER_CODE_WORK_PATH"
       tar "$options" "$work_file"
     )
 
-    install_app "$MAC_OS_WORK_PATH" "$app_name"
+    install_app "$BETTER_CODE_WORK_PATH" "$app_name"
     printf "Installed: $app_name.\n"
     verify_application "$app_name"
   fi
@@ -277,12 +279,12 @@ install_zip_app() {
 
     (
       printf "Preparing...\n"
-      cd "$MAC_OS_WORK_PATH"
+      cd "$BETTER_CODE_WORK_PATH"
       unzip -q "$work_file"
       find . -type d -name "$app_name" -print -exec cp -pR {} . > /dev/null 2>&1 \;
     )
 
-    install_app "$MAC_OS_WORK_PATH" "$app_name"
+    install_app "$BETTER_CODE_WORK_PATH" "$app_name"
     printf "Installed: $app_name.\n"
     verify_application "$app_name"
   fi
@@ -302,11 +304,11 @@ install_zip_pkg() {
 
     (
       printf "Preparing...\n"
-      cd "$MAC_OS_WORK_PATH"
+      cd "$BETTER_CODE_WORK_PATH"
       unzip -q "$work_file"
     )
 
-    install_pkg "$MAC_OS_WORK_PATH" "$app_name"
+    install_pkg "$BETTER_CODE_WORK_PATH" "$app_name"
     printf "Installed: $app_name.\n"
     verify_application "$app_name"
   fi

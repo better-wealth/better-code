@@ -1,5 +1,14 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/config/bin/apply_default_settings
+# Applies default settings.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
+
 # Applies system and application defaults.
 
 #printf "%s\n" "System - Disable boot sound effects."

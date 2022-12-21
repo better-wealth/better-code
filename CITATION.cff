@@ -1,4 +1,4 @@
-cff-version: 0.1.0
+cff-version: 1.2.0
 message: Please use the following metadata when citing this project in your work.
 title: better-code
 abstract: Scripts for building a better coding environment.
@@ -8,7 +8,7 @@ date-released: 2022-04-29
 authors:
   - family-names: Roach
     given-names: John
-    affiliation: johnpatrickroach
+    affiliation: better-wealth
 keywords:
  - bash
  - shell

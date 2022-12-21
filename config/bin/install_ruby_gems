@@ -1,9 +1,35 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/config/bin/install_ruby_gems
 # Installs Ruby gems.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
 
-#Examples:
-#gem install asciidoctor
-#gem install benchmark-ips
-#gem install rails
-#gem install rake
+
+gem install amazing_print
+gem install asciidoctor
+gem install benchmark-ips
+gem install bundler-stats
+gem install bundleup
+gem install caliber
+gem install debug
+gem install flacsmith
+gem install gemsmith
+gem install git-lint
+gem install hanami
+gem install libyear-bundler
+gem install license_finder
+gem install pennyworth
+gem install pessimize
+gem install pragmater
+gem install rails
+gem install rake
+gem install reek
+gem install rspec
+gem install rubocop
+gem install rubysmith
+gem install solargraph
+gem install youplot

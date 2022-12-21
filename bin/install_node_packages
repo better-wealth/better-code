@@ -1,6 +1,12 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/bin/install_node_packages
 # Installs Node packages.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
 
 set -o nounset
 set -o errexit

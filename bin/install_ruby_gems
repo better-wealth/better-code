@@ -1,6 +1,13 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/bin/install_ruby_gems
 # Installs Ruby gems.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 set -o nounset
 set -o errexit

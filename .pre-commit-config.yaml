@@ -394,6 +394,10 @@ repos:
       - id: cookstyle
       - id: rspec
       - id: chef-cookbook-version
+  - repo: https://github.com/pivotal/LicenseFinder
+    rev: v7.1.0
+    hooks:
+      - id: license-finder
 
   ########
   # rust #

@@ -24,7 +24,7 @@ export -f caffeinate_machine
 
 # Cleans work path for temporary processing of installs.
 clean_work_path() {
-  rm -rf "$MAC_OS_WORK_PATH"
+  rm -rf "$BETTER_CODE_WORK_PATH"
 }
 export -f clean_work_path
 

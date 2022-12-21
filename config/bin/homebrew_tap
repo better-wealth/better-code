@@ -8,4 +8,5 @@
 # 2022 (C) John Patrick Roach
 ################################################################################
 
-brew tap cmars/onionpipe
+# Example:
+# brew tap cmars/onionpipe

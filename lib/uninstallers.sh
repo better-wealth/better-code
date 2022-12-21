@@ -34,6 +34,13 @@ uninstall_application() {
 }
 export -f uninstall_application
 
+# Uninstalls cleanmymac.
+uninstall_cleanmymac() {
+  rm -rf $(which cleanmymac)
+  rm -rf ~/.cleanmymac
+  echo "Clean My macOS has been uninstalled. :("
+}
+
 # Uninstalls selected extension.
 uninstall_extension() {
   # Only use environment keys that end with "EXTENSION_PATH".

@@ -1,7 +1,15 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/config/bin/install_node_packages
+# Installs Node packages.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 # Installs Node packages.
 
 #Examples:
-#npm install --global elm-live
-#npm install --global elm-test
+npm install --global elm-live
+npm install --global elm-test

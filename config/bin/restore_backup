@@ -1,6 +1,13 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/config/bin/retore_backup
 # Performs restoration of backup data.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 read -p "Has machine been rebooted since install (y/n)? " mac_os_reboot
 
@@ -9,7 +16,7 @@ if [[ "$mac_os_reboot" != "y" ]]; then
   exit 1
 fi
 
-read -p "Where is the backup volume (Example: \"/Volumes/alchemist\")? " mac_os_backup_root
+read -p "Where is the backup volume (Example: \"/Volumes/better_code\")? " mac_os_backup_root
 
 if [[ ! -e "$mac_os_backup_root" ]]; then
   printf "ERROR: Backup volume cannot be found: $mac_os_backup_root\n"
@@ -33,5 +40,5 @@ rsync \
   "$mac_os_backup_root/" /
 
 # Newsyslog
-sudo cp -p "$mac_os_backup_root/etc/newsyslog.d/patrick.roach.conf" "/etc/newsyslog.d"
+sudo cp -p "$mac_os_backup_root/etc/newsyslog.d/better_wealth.conf" "/etc/newsyslog.d"
 sudo cp -p "$mac_os_backup_root/etc/newsyslog.d/homebrew.conf" "/etc/newsyslog.d"
