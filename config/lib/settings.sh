@@ -53,6 +53,7 @@ export CLEANMYMAC_SCRIPT="./install.sh"
 # Application Extensions
 export CURL_CURLRC_EXTENSION_PATH="$HOME/.curlrc"
 export CURL_CURLRC_EXTENSION_URL="https://raw.githubusercontent.com/drduh/config/master/curlrc"
+
 export PYENV_EXTENSION_ROOT="$HOME/.pyenv/plugins"
 export PYENV_XXENV_EXTENSION_PATH="$PYENV_EXTENSION_ROOT/xxenv-latest"
 export PYENV_XXENV_EXTENSION_URL="https://github.com/momo-lab/xxenv-latest"

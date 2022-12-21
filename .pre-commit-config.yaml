@@ -20,9 +20,9 @@ repos:
       - id: check-case-conflict
       - id: check-docstring-first
       - id: check-executables-have-shebangs
+      # - id: pretty-format-json
       - id: check-json
       - id: check-shebang-scripts-are-executable
-      - id: pretty-format-json
       - id: check-merge-conflict
       - id: check-symlinks
       - id: check-toml
@@ -286,25 +286,25 @@ repos:
         types: [python]
         args: [-i, --ignore-docstrings]
       #- id: pytest
-        #name: pytest
-        #entry: pytest
-        #language: system
-        #types: [python]
+      #name: pytest
+      #entry: pytest
+      #language: system
+      #types: [python]
       #- id: pytest-cov
-        #name: pytest
-        #entry: pytest
-        #args:
-          #[
-            #"--cov=better_crypto",
-            #"--cov-config=.coveragerc",
-            #"--cov-report=html",
-            #"--cov-report=xml",
-            #"--cov-report=lcov",
-            #--cov-fail-under=1
-          #]
-        #language: system
-        #types: [python]
-        #pass_filenames: false
+      #name: pytest
+      #entry: pytest
+      #args:
+      #[
+      #"--cov=better_crypto",
+      #"--cov-config=.coveragerc",
+      #"--cov-report=html",
+      #"--cov-report=xml",
+      #"--cov-report=lcov",
+      #--cov-fail-under=1
+      #]
+      #language: system
+      #types: [python]
+      #pass_filenames: false
 
   #########
   # macOS #
@@ -368,7 +368,6 @@ repos:
     rev: 6.0.0
     hooks:
       - id: flake8
-        exclude: ^docs/|setup.py
 
   - repo: https://github.com/PyCQA/isort
     rev: 5.11.2

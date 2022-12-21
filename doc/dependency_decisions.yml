@@ -1,0 +1,25 @@
+---
+- - :permit
+  - MIT
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-12-21 21:57:45.070315000 Z
+- - :permit
+  - Hippocratic-2.1
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-12-21 21:57:56.059086000 Z
+- - :permit
+  - Simplified BSD
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-12-21 21:58:11.830639000 Z
+- - :permit
+  - ruby
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-12-21 21:58:21.725815000 Z

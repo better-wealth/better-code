@@ -1,187 +1,208 @@
 {
-	// Editor settings
-	"editor.tabSize": 4,
-	"editor.rulers": [80, 120],
-	"editor.renderWhitespace": "trailing",
-	"editor.suggestSelection": "first",
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.bracketPairColorization.enabled": false,
-	"editor.cursorSmoothCaretAnimation": true,
-	"editor.tabCompletion": "on",
-	"diffEditor.codeLens": true,
-	"editor.suggest.snippetsPreventQuickSuggestions": false,
-	"aiXcoder.showTrayIcon": true,
-	// terminal
-	"terminal.integrated.defaultProfile.windows": "Command Prompt",
-	"terminal.integrated.enableMultiLinePasteWarning": false,
-	// Debug
-	"debug.onTaskErrors": "debugAnyway",
-	// Explorer settings
-	"explorer.compactFolders": false,
-	"explorer.confirmDragAndDrop": false,
-	"explorer.confirmDelete": false,
-	"explorer.copyRelativePathSeparator": "/",
-	// Files settings
-	"files.autoSave": "onFocusChange",
-	"files.exclude": {
-		"node_modules/**/*": true,
-		"**/.classpath": true,
-		"**/.project": true,
-		"**/.settings": true,
-		"**/.factorypath": true,
-		"**/*.pyc": true,
-		"**/.DS_Store": true,
-		"**/.git": true,
-		"**/.hg": true,
-		"**/.mypy_cache": true,
-		"**/.pytest_cache": true,
-		"**/.python-version": true,
-		"**/.svn": true,
-		"**/CVS": true,
-		"**/Pipfile.lock": true,
-		"**/__pycache__": true,
-		"**/poetry.lock": true
-	},
-	"files.associations": {
-		"*.pyd": "Cython",
-		"*.pyx": "Cython",
-		".clang*": "yaml",
-		"*.gpj": "jsonc",
-		"*.gvw": "jsonc"
-	},
-	"files.insertFinalNewline": true,
-	"files.trimFinalNewlines": true,
-	"files.trimTrailingWhitespace": true,
-	// workbench
-	"workbench.startupEditor": "none",
-	"workbench.editorAssociations": {
-		"*.ipynb": "jupyter-notebook",
-		"*.md": "vscode.markdown.preview.editor",
-		"*.svg": "svgPreviewer.customEditor"
-	},
-	"workbench.editor.untitled.hint": "hidden",
-	// Git settings
-	"git.enableSmartCommit": true,
-	"git.autofetch": true,
-	"git.confirmSync": false,
-	// Telemetry and Security settings
-	"security.workspace.trust.untrustedFiles": "open",
-	"security.workspace.trust.enabled": false,
-	// Python settings
-	"python.linting.enabled": true,
-	"python.linting.lintOnSave": true,
-	"python.linting.flake8Enabled": true,
-	"python.linting.pylintEnabled": true,
-	"python.linting.mypyEnabled": true,
-	"python.formatting.provider": "black",
-	"python.languageServer": "Pylance",
-	"autoDocstring.generateDocstringOnEnter": true,
-	"autoDocstring.quoteStyle": "'''",
-	"[python]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "ms-python.python"
-	},
-	// Jupyter Notebook
-	"jupyter.askForKernelRestart": false,
-	"jupyter.interactiveWindowMode": "perFile",
-	"jupyter.generateSVGPlots": true,
-	"jupyter.useDefaultConfigForJupyter": true,
-	"notebook.compactView": false,
-	"notebook.diff.ignoreMetadata": true,
-	"notebook.diff.ignoreOutputs": true,
-	// markdown
-	"markdown.validate.enabled": true,
-	"[markdown]": {
-		"files.trimTrailingWhitespace": false,
-		"editor.formatOnSave": false,
-		"editor.defaultFormatter": "yzhang.markdown-all-in-one",
-		"editor.wordWrap": "wordWrapColumn"
-	},
-	// Different languages
-	"[yaml]": {
-		"editor.formatOnSave": false,
-		"editor.defaultFormatter": "redhat.vscode-yaml"
-	},
-	"[json]": {
-		"editor.formatOnSave": false,
-		"editor.defaultFormatter": "vscode.json-language-features"
-	},
-	"[jsonc]": {
-		"editor.formatOnSave": false
-	},
-	"[plaintext]": {
-		"editor.wordWrap": "wordWrapColumn",
-		"editor.wordWrapColumn": 120
-	},
-	// BetterComments
-	"better-comments.tags": [
-		{
-			"tag": "XXX",
-			"color": "#F8C471"
-		},
-		{
-			"tag": "WARN",
-			"color": "#FF6961"
-		},
-		{
-			"tag": "NOTE",
-			"color": "#3498DB"
-		},
-		{
-			"tag": "TODO",
-			"color": "#77C3EC"
-		}
-	],
-	// other extensions
-	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-	"codesnap.showWindowControls": false,
-	"codesnap.shutterAction": "copy",
-	"Workspace_Formatter.includePattern": ["*.py"],
-	"Workspace_Formatter.excludePattern": ["**/build", "**/.*", "**/.vscode"],
-	"svg.preview.autoOpen": true,
-	"errorLens.delay": 1000,
-	"errorLens.enabledDiagnosticLevels": ["error", "warning"],
-	"errorLens.enabled": false,
-	"telemetry.telemetryLevel": "error",
-	"python.linting.banditEnabled": true,
-	"python.linting.prospectorEnabled": true,
-	"python.linting.pycodestyleEnabled": true,
-	"python.linting.pydocstyleEnabled": true,
-	"python.linting.pylamaEnabled": true,
-	"black-formatter.args": ["--line-length=80"],
-	"black-formatter.path": ["black"],
-	"python.analysis.inlayHints.functionReturnTypes": true,
-	"python.analysis.inlayHints.variableTypes": true,
-	"pylint.args": ["--max-line-length=80"],
-	"pylint.path": ["pylint"],
-	"python.analysis.autoImportCompletions": true,
-	"python.analysis.completeFunctionParens": true,
-	"python.analysis.autoImportUserSymbols": true,
-	"python.analysis.diagnosticMode": "workspace",
-	"python.analysis.exclude": [".coveragerc"],
-	"python.globalModuleInstallation": true,
-	"python.linting.pycodestyleArgs": ["--max-line-length=80"],
-	"python.linting.pylamaArgs": ["--max-line-length=80"],
-	"python.linting.pylintArgs": ["--max-line-length=80"],
-	"python.testing.nosetestsEnabled": false,
-	"python.testing.pytestArgs": ["tests"],
-	"python.testing.pytestEnabled": true,
-	"python.testing.unittestEnabled": true,
-	"[toml]": {
-		"editor.defaultFormatter": "tamasfe.even-better-toml"
-	},
-	"python.linting.banditArgs": ["-c pyproject.toml"],
-	"mypy.configFile": "setup.cfg",
-	"python.linting.mypyArgs": [
-		"--follow-imports=silent",
-		"--ignore-missing-imports",
-		"--show-column-numbers",
-		"--no-pretty",
-		"--config-file=setup.cfg",
-		"--install-types",
-		"--non-interactive"
-	],
-	"isort.args": ["--float-to-top", "--profile black"],
-	"isort.check": true
+  "Workspace_Formatter.excludePattern": [
+    "**/build",
+    "**/.*",
+    "**/.vscode"
+  ],
+  "Workspace_Formatter.includePattern": [
+    "*.py"
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": false
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": false
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.formatOnSave": false,
+    "editor.wordWrap": "wordWrapColumn",
+    "files.trimTrailingWhitespace": false
+  },
+  "[plaintext]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnSave": true
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": false
+  },
+  "aiXcoder.showTrayIcon": true,
+  "autoDocstring.generateDocstringOnEnter": true,
+  "autoDocstring.quoteStyle": "'''",
+  "better-comments.tags": [
+    {
+      "color": "#F8C471",
+      "tag": "XXX"
+    },
+    {
+      "color": "#FF6961",
+      "tag": "WARN"
+    },
+    {
+      "color": "#3498DB",
+      "tag": "NOTE"
+    },
+    {
+      "color": "#77C3EC",
+      "tag": "TODO"
+    }
+  ],
+  "black-formatter.args": [
+    "--line-length=80"
+  ],
+  "black-formatter.path": [
+    "black"
+  ],
+  "codesnap.showWindowControls": false,
+  "codesnap.shutterAction": "copy",
+  "debug.onTaskErrors": "debugAnyway",
+  "diffEditor.codeLens": true,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "trailing",
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 4,
+  "errorLens.delay": 1000,
+  "errorLens.enabled": false,
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning"
+  ],
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.copyRelativePathSeparator": "/",
+  "files.associations": {
+    "*.gpj": "jsonc",
+    "*.gvw": "jsonc",
+    "*.pyd": "Cython",
+    "*.pyx": "Cython",
+    ".clang*": "yaml"
+  },
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/*.pyc": true,
+    "**/.DS_Store": true,
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.mypy_cache": true,
+    "**/.project": true,
+    "**/.pytest_cache": true,
+    "**/.python-version": true,
+    "**/.settings": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/Pipfile.lock": true,
+    "**/__pycache__": true,
+    "**/poetry.lock": true,
+    "node_modules/**/*": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "isort.args": [
+    "--float-to-top",
+    "--profile black"
+  ],
+  "isort.check": true,
+  "jupyter.askForKernelRestart": false,
+  "jupyter.generateSVGPlots": true,
+  "jupyter.interactiveWindowMode": "perFile",
+  "jupyter.useDefaultConfigForJupyter": true,
+  "markdown.validate.enabled": true,
+  "mypy.configFile": "setup.cfg",
+  "notebook.compactView": false,
+  "notebook.diff.ignoreMetadata": true,
+  "notebook.diff.ignoreOutputs": true,
+  "pylint.args": [
+    "--max-line-length=80"
+  ],
+  "pylint.path": [
+    "pylint"
+  ],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoImportUserSymbols": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.exclude": [
+    ".coveragerc"
+  ],
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.formatting.provider": "black",
+  "python.globalModuleInstallation": true,
+  "python.languageServer": "Pylance",
+  "python.linting.banditArgs": [
+    "-c pyproject.toml"
+  ],
+  "python.linting.banditEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.mypyArgs": [
+    "--follow-imports=silent",
+    "--ignore-missing-imports",
+    "--show-column-numbers",
+    "--no-pretty",
+    "--config-file=setup.cfg",
+    "--install-types",
+    "--non-interactive"
+  ],
+  "python.linting.mypyEnabled": true,
+  "python.linting.prospectorEnabled": true,
+  "python.linting.pycodestyleArgs": [
+    "--max-line-length=80"
+  ],
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pylamaArgs": [
+    "--max-line-length=80"
+  ],
+  "python.linting.pylamaEnabled": true,
+  "python.linting.pylintArgs": [
+    "--max-line-length=80"
+  ],
+  "python.linting.pylintEnabled": true,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": true,
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "svg.preview.autoOpen": true,
+  "telemetry.telemetryLevel": "error",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook",
+    "*.md": "vscode.markdown.preview.editor",
+    "*.svg": "svgPreviewer.customEditor"
+  },
+  "workbench.startupEditor": "none"
 }

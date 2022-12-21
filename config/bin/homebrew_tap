@@ -10,3 +10,5 @@
 
 # Example:
 # brew tap cmars/onionpipe
+
+echo "In better-code/config/bin/homebrew_tap"

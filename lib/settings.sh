@@ -14,6 +14,7 @@ set -o errexit
 set -o pipefail
 IFS=$'\n\t'
 
+
 export BETTER_CODE_WORK_PATH=/tmp/downloads
-export BETTER_CODE_CONFIG_PATH="../config"
+export BETTER_CODE_CONFIG_PATH="config"
 export BETTER_CODE_XCODE_ACTIVE_DEVELOPER_DIRECTORY_PATH="$(xcode-select -p)"

@@ -211,12 +211,32 @@ export -f install_node
 # Installs Ruby.
 # Parameters: None.
 install_ruby() {
-  local version="$(cat $HOME/.ruby-version | tr -d '\n')"
-
+  if [ -f "$HOME/.ruby-version" ]; then
+    local version="$(cat $HOME/.ruby-version | tr -d '\n')"
+  else
+    touch $HOME/.ruby-version
+    if [ -x "$(command -v ruby)" ]; then
+      local version="$(ruby --version | awk '{ print $2 }')"
+      echo "$version" > $HOME/.ruby-version
+    else
+      local version=$(frum install -l | tail -n 1)
+      echo "$version" > $HOME/.ruby-version
+    fi
+  fi
   if [[ ! -x "$(command -v ruby)" && -n $(ruby --version | grep --quiet "$version") ]]; then
+    homebrew_bin_root=$(get_homebrew_bin_root)
+    eval "$($homebrew_bin_root/frum init)"
     $(get_homebrew_bin_root)/frum install "$version"
     $(get_homebrew_bin_root)/frum local "$version"
     gem update --system && gem update
+  elif  [[ ! $(frum versions) ]]; then
+    homebrew_bin_root=$(get_homebrew_bin_root)
+    eval "$($homebrew_bin_root/frum init)"
+    $(get_homebrew_bin_root)/frum install "$version"
+    $(get_homebrew_bin_root)/frum local "$version"
+    gem update --system && gem update
+  else
+    printf "Ruby already installed locally."
   fi
 }
 export -f install_ruby

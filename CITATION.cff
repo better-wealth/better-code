@@ -10,18 +10,18 @@ authors:
     given-names: John
     affiliation: better-wealth
 keywords:
- - bash
- - shell
- - zsh
- - python3
- - brew
- - Homebrew
- - macOS
- - defaults
- - scripts
- - automation
- - setup
- - recovery
- - dotfiles
+  - bash
+  - shell
+  - zshs
+  - python3
+  - brew
+  - Homebrew
+  - macOS
+  - defaults
+  - scripts
+  - automation
+  - setup
+  - recovery
+  - dotfiles
 repository-code: https://github.com/better-wealth/better-code
 repository-artifact: https://github.com/better-wealth/better-code

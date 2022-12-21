@@ -12,6 +12,7 @@ brew install asciinema
 brew install bash-completion
 brew install bat
 brew install blueutil
+brew install cocoapods
 brew install croc
 brew install crystal
 brew install ctags
@@ -79,7 +80,6 @@ brew install tarsnap
 brew install tealdeer
 brew install terraform
 brew install the_silver_searcher
-brew instal tldr
 brew install tmux
 brew install tokei
 brew install viddy

@@ -1,13 +1,12 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-
-        {
-            "name": "Python Debug: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        }
-    ]
+  "configurations": [
+    {
+      "console": "integratedTerminal",
+      "name": "Python Debug: Current File",
+      "program": "${file}",
+      "request": "launch",
+      "type": "python"
+    }
+  ],
+  "version": "0.2.0"
 }

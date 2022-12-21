@@ -13,3 +13,4 @@
 #Examples:
 npm install --global elm-live
 npm install --global elm-test
+npm install --global tldr
