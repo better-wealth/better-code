@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [better-code](#better-code)
+  - [Summary](#summary)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Usage](#usage)
+    - [Pre-Install](#pre-install)
+    - [Install](#install)
+  - [Customization](#customization)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # better-code
  A better coding environment manager.
 
