@@ -1,29 +1,56 @@
 #! /usr/bin/env bash
 
-# Applies basic system settings.
+################################################################################
+# better-code/config/bin/apply_basic_settings
+# Applies cutsom system settings.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
 
-read -p "What is this machine's label (Example: \"patrick.roach\")? " mac_os_label
-if [[ -z "$mac_os_label" ]]; then
-  printf "ERROR: Invalid MacOS label.\n"
-  exit 1
+
+if [ -z "$MAC_OS_LABEL" ]; then
+  read -p "What is this machine's label (Example: \"Macbook\")? " mac_os_label
+  if [[ -z "$mac_os_label" ]]; then
+    printf "ERROR: Invalid MacOS label.\n"
+    exit 1
+  fi
+else
+  printf "INFO: Using default MAC_OS_LABEL set in config/bin/settings.sh.\n"
+  mac_os_label=$MAC_OS_LABEL
 fi
 
-read -p "What is this machine's name (Example: \"C02FG5S0MD6R\")? " mac_os_name
-if [[ -z "$mac_os_name" ]]; then
-  printf "ERROR: Invalid MacOS name.\n"
-  exit 1
+if [ -z "$MAC_OS_NAME" ]; then
+  read -p "What is this machine's name (Example: \"Macbook\")? " mac_os_name
+  if [[ -z "$mac_os_name" ]]; then
+    printf "ERROR: Invalid MacOS name.\n"
+    exit 1
+  fi
+else
+  printf "INFO: Using default MAC_OS_NAME set in config/bin/settings.sh.\n"
+  mac_os_name=$MAC_OS_NAME
 fi
 
-read -p "Delete all files in $HOME/Documents (y/n)? " documents
-if [[ "$documents" == "y" ]]; then
-  rm -rf $HOME/Documents/*
-  printf "%s\n" "Documents deleted."
+if [ -z "$DOCUMENTS" ]; then
+  read -p "Delete all files in $HOME/Documents (y/n)? " documents
+  if [[ -z "$documents" ]]; then
+    printf "ERROR: Invalid selection.\n"
+    exit 1
+  fi
+else
+  printf "INFO: Using DOCUMENTS set in config/bin/settings.sh.\n"
+  documents=$DOCUMENTS
 fi
 
-read -p "Delete all files in $HOME/Downloads (y/n)? " downloads
-if [[ "$downloads" == "y" ]]; then
-  rm -rf $HOME/Downloads/*
-  printf "%s\n" "Downloads deleted."
+if [ -z "$DOWNLOADS" ]; then
+  read -p "Delete all files in $HOME/Downloads (y/n)? " downloads
+  if [[ -z "$downloads" ]]; then
+    printf "ERROR: Invalid selection.\n"
+    exit 1
+  fi
+else
+  printf "INFO: Using DOWNLOADS set in config/bin/settings.sh.\n"
+  downloads=$DOWNLOADS
 fi
 
 printf "Setting system label and name...\n"
@@ -31,4 +58,11 @@ sudo scutil --set ComputerName $mac_os_label
 sudo scutil --set HostName $mac_os_name
 sudo scutil --set LocalHostName $mac_os_name
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $mac_os_name
-
+if [[ "$documents" == "y" ]]; then
+    rm -rf $HOME/Documents/*
+    printf "%s\n" "Documents deleted."
+fi
+if [[ "$downloads" == "y" ]]; then
+    rm -rf $HOME/Downloads/*
+    printf "%s\n" "Downloads deleted."
+fi

@@ -26,7 +26,7 @@ rsync \
   --numeric-ids \
   --links \
   --hard-links \
-  --files-from="$MAC_OS_CONFIG_PATH/lib/restore.bom" \
+  --files-from="$BETTER_CODE_CONFIG_PATH/lib/restore.bom" \
   --log-file="log/restore.log" \
   --human-readable \
   --verbose \

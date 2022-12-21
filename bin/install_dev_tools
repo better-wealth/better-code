@@ -1,21 +1,22 @@
 #! /usr/bin/env bash
 
-Installs development tooling requirements.
+################################################################################
+# better-code/bin/install_dev_tools
+# Installs development tooling requirements.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
 
-if [[ -z "$MAC_OS_XCODE_ACTIVE_DEVELOPER_DIRECTORY_PATH" ]]; then
-  printf "Installing Xcode CLI tools...\n"
-  xcode-select --install
+set -o nounset
+set -o errexit
+set -o pipefail
+IFS=$'\n\t'
 
-  printf "%s\n" "💡 ALT+TAB to view and accept Xcode license window."
-  read -p "Have you completed the Xcode CLI tools install (y/n)? " xcode_response
-  if [[ "$xcode_response" != "y" ]]; then
-    printf "ERROR: Xcode CLI tools must be installed before proceeding.\n"
-    exit 1
-  fi
+SCRIPT_PATH="$BETTER_CODE_CONFIG_PATH/bin/install_dev_tools"
+
+if [[ -x "$SCRIPT_PATH" ]]; then
+  "$SCRIPT_PATH"
 else
-  printf "Xcode command line tools already installed...\n"
-fi
-
-if [[ "$(/usr/bin/arch)" == "arm64" ]]; then
-  softwareupdate --install-rosetta --agree-to-license
+  printf "WARNING: Development tools script does not exist or is not executable.\n"
 fi

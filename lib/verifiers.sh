@@ -1,6 +1,13 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/lib/verifiers.sh
 # Defines verification/validation functions.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 # Checks for missing App Store applications.
 verify_app_store_applications() {
@@ -13,7 +20,7 @@ verify_app_store_applications() {
       local application=$(printf "$line" | awk '{print $3}')
       verify_listed_application "$application" "${applications[*]}"
     fi
-  done < "$MAC_OS_CONFIG_PATH/bin/install_app_store"
+  done < "$BETTER_CODE_CONFIG_PATH/bin/install_app_store"
 
   printf "App Store check complete.\n"
 }
@@ -75,7 +82,7 @@ verify_homebrew_casks() {
       local application=$(printf "$line" | awk '{print $4}')
       verify_listed_application "$application" "${applications[*]}"
     fi
-  done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_casks"
+  done < "$BETTER_CODE_CONFIG_PATH/bin/install_homebrew_casks"
 
   printf "Homebrew cask check complete.\n"
 }
@@ -98,7 +105,7 @@ verify_homebrew_formulas() {
 
       verify_listed_application "$application" "${applications[*]}"
     fi
-  done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_formulas"
+  done < "$BETTER_CODE_CONFIG_PATH/bin/install_homebrew_formulas"
 
   printf "Homebrew formula check complete.\n"
 }
@@ -138,7 +145,7 @@ verify_node_packages() {
 
       verify_listed_application "$package" "${packages[*]}"
     fi
-  done < "$MAC_OS_CONFIG_PATH/bin/install_node_packages"
+  done < "$BETTER_CODE_CONFIG_PATH/bin/install_node_packages"
 
   printf "Node packages check complete.\n"
 }
@@ -155,7 +162,7 @@ verify_ruby_gems() {
       local gem=$(printf "$line" | awk '{print $3}')
       verify_listed_application "$gem" "${gems[*]}"
     fi
-  done < "$MAC_OS_CONFIG_PATH/bin/install_ruby_gems"
+  done < "$BETTER_CODE_CONFIG_PATH/bin/install_ruby_gems"
 
   printf "Ruby gems check complete.\n"
 }
@@ -172,7 +179,7 @@ verify_rust_crates() {
       local crate=$(printf "$line" | awk '{print $3}')
       verify_listed_application "$crate" "${crates[*]}"
     fi
-  done < "$MAC_OS_CONFIG_PATH/bin/install_rust_crates"
+  done < "$BETTER_CODE_CONFIG_PATH/bin/install_rust_crates"
 
   printf "Rust crates check complete.\n"
 }

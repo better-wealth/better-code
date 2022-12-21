@@ -1,13 +1,20 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/bin/install_app_store
 # Installs App Store software.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 set -o nounset
 set -o errexit
 set -o pipefail
 IFS=$'\n\t'
 
-SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_app_store"
+SCRIPT_PATH="$BETTER_CODE_CONFIG_PATH/bin/install_app_store"
 
 if [[ -x "$SCRIPT_PATH" ]]; then
   check_mas_install

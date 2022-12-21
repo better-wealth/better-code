@@ -1,7 +1,13 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
+################################################################################
+# better-code/lib/utilities.sh
 # Defines general utility functions.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 # Caffeinate machine.
 caffeinate_machine() {

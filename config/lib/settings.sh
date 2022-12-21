@@ -1,18 +1,22 @@
 #! /usr/bin/env bash
 
-# Defines global settings.
+################################################################################
+# better-code/lib/settings.sh
+# Defines custom settings.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
 
-# General
-set -o nounset
-set -o errexit
-set -o pipefail
-IFS=$'\n\t'
+
+# config/bin/apply_basic_settings
+export MAC_OS_LABEL="Macbook"
+export MAC_OS_NAME="Macbook"
+export DOCUMENTS="n"
+export DOWNLOADS="n"
 
 # Homebrew
 export HOMEBREW_CURL_RETRIES=3
-
-# Repositories
-export REPO_DOTFILES=1.0.0
 
 # Applications
 export DOCKER_APP_NAME="Docker.app"
@@ -31,10 +35,6 @@ else
   export POSTMAN_APP_URL="https://dl.pstmn.io/download/latest/osx_64"
 fi
 
-export GPG_KEYCHAIN_APP_NAME="GPG Keychain.app"
-export GPG_KEYCHAIN_APP_URL="https://gpgtools.org/download"
-export GPG_KEYCHAIN_VOLUME_NAME="GPG Suite"
-
 # Application Extensions
 export CURL_CURLRC_EXTENSION_PATH="$HOME/.curlrc"
 export CURL_CURLRC_EXTENSION_URL="https://raw.githubusercontent.com/drduh/config/master/curlrc"
@@ -46,3 +46,5 @@ export VIM_VIMRC_EXTENSION_SCRIPT="sh ./install_awesome_vimrc.sh"
 export VIM_VIMRC_EXTENSION_URL="https://github.com/amix/vimrc"
 export VIM_VIMRC_EXTENSION_VERSION="master"
 
+# Dotfiles
+export DOTFILES_VERSION="main"

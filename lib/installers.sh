@@ -1,6 +1,13 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/lib/installers.sh
 # Defines software installer functions.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 # Downloads remote file to local disk.
 # Parameters: $1 (required) - URL, $2 (required) - File name, $3 (optional) - HTTP header.

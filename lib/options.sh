@@ -1,14 +1,18 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
+################################################################################
+# better-code/lib/options.sh
 # Defines command line prompt options.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 # Process option selection.
 # Parameters: $1 (required) - The option to process.
 process_option() {
   case $1 in
-    'B')
-      bin/create_boot_disk;;
     'b')
       bin/apply_basic_settings;;
     't')

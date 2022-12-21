@@ -1,12 +1,16 @@
 #! /usr/bin/env bash
 
-# Installs Homebrew Casks.
+################################################################################
+# better-code/config/bin/install_homebrew_casks
+# Installs Homebrew Cask software.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
 
-brew install --cask discord
+
 brew install --cask firefox
 brew install --cask iterm2
 brew install --cask librewolf
 brew install --cask rstudio
 brew install --cask visual-studio-code
-
-

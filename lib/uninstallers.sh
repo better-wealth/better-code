@@ -1,6 +1,13 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/lib/uninstallers.sh
 # Defines uninstall functions.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 # Uninstalls selected application.
 uninstall_application() {

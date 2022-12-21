@@ -1,7 +1,13 @@
 #! /usr/bin/env bash
 
+################################################################################
+# better-code/config/bin/install_applications
 # Installs applications.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 install_dmg_app "$DOCKER_APP_URL" "$DOCKER_VOLUME_NAME" "$DOCKER_APP_NAME"
-install_dmg_pkg "$GPG_KEYCHAIN_APP_URL" "$GPG_KEYCHAIN_VOLUME_NAME" "$GPG_KEYCHAIN_APP_NAME"
 install_zip_app "$POSTMAN_APP_URL" "$POSTMAN_APP_NAME"

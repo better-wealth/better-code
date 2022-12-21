@@ -7,7 +7,7 @@
 Shell scripts for customized macOS machine setup and configuration.
 
 This project provides a highly opinionated default configuration built upon the
-link:https://www.alchemists.io/projects/mac_os[macOS] project. Should the configuration provided by
+link:https://www.github.com/better-wealth/better-code[better-code] project. Should the configuration provided by
 this project not be to your liking, feel free to fork and customize for your specific needs.
 
 toc::[]

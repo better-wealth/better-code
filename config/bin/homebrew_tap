@@ -1,5 +1,11 @@
 #! /usr/bin/env bash
 
-# Homebrew tap.
+################################################################################
+# better-code/config/bin/homebrew_tap
+# Hombrew Tap.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
 
 brew tap cmars/onionpipe

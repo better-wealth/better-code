@@ -1,14 +1,21 @@
 #! /usr/bin/env bash
 
-# Installs dotfiles.
+################################################################################
+# better-code/config/bin/install_dotfiles
+# Installs better-wealth/better-dotfiles.git.
+# https://github.com/better-wealth/better-code
+# MIT License
+# 2022 (C) John Patrick Roach
+################################################################################
+
 
 if [[ -z $(cat /etc/shells | grep "$(get_homebrew_bin_root)/bash") ]]; then
   sudo bash -c "printf '$(get_homebrew_bin_root)/bash\n' >> /etc/shells"
   chsh -s "$(get_homebrew_bin_root)/bash"
 
-  rm -f "$HOME/.bash_profile"
-  install_git_project "https://github.com/bkuhlmann/dotfiles.git" $REPO_DOTFILES "dotfiles" "bin/run i"
-  source "$HOME/.bashrc"
+  rm -f "$HOME/.z_profile"
+  install_git_project "https://github.com/better-wealth/better-dotfiles.git" $DOTFILES_VERSION "better-dotfiles" "bin/run i"
+  source "$HOME/.zshrc"
 else
-  printf "%s\n" "Dotfiles are installed."
+  printf "%s\n" "better-wealth/better-dotfiles are installed."
 fi
